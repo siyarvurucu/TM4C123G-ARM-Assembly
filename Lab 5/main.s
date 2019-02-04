@@ -28,23 +28,25 @@ __main
 			LDR		R2,=ADCSSFIFO3
 			LDR		R3,=ADCISC
 			LDR		R6,=ADCRIS
-			LDR		R7,=0X0FFF  ; max adc value
+			LDR		R7,=0X0FFF  	; max adc value
 			LDR		R8,=330		; represents 3.30 volt
-			LDR		R9,=0X014   ; 20, for 0.2 volt check
+			LDR		R9,=0X014  	; 20, for 0.2 volt check
 			LDR		R10,=0X00	; previous sample
-loop		MOV		R0,#0X08
+loop			MOV		R0,#0X08
 			LDR		R5,=MEMORY
-			STR		R0,[R1]     ; set bit 3 in ADCPSSI to take new sample
-check		LDR		R0,[R6]	    ; raw interrupt?
-			ANDS	R0,#0x08    ; check bit 3
-			BEQ		check       ; check until ready
+			STR		R0,[R1]    	 ; set bit 3 in ADCPSSI to take new sample
+check			LDR		R0,[R6]	    	; raw interrupt?
+			ANDS		R0,#0x08    	; check bit 3
+			BEQ		check       	; check until ready
 			
 			LDR		R4,[R2]		; load value
 			STR		R0,[R3]		; clear ISC
 			MUL		R4,R4,R8	; 330 times measurement divided by FFF gives voltage
-			UDIV	R4,R4,R7
-			;BL 	part_one	; 
+			UDIV		R4,R4,R7
+			
+			;BL 		part_one    ; 
 			;BL		part_two    ;
+			
 			BL		part_three
 			B		loop
 			END
