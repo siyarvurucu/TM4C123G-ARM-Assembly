@@ -13,8 +13,10 @@ motor should be after the button release. Be aware of bouncing inherent in the b
 
 4. Design a system that has 4 inputs from push buttons to control a stepper motor.  
 One button is for speeding up, one is for slowing down, the other two are for directions.   
-Use 4 buttons of the 4x4 Keypad Module introduced in Experiment-2. Draw the necessary   
-connections between TM4C123G, L293D, 4x4 Keypad Module and stepper motor.  
+Use 4 buttons of the 4x4 Keypad Module introduced in Lab 2. Draw the necessary   
+connections between TM4C123G, L293D, 4x4 Keypad Module and stepper motor. 
+
+![alt text](https://lh5.googleusercontent.com/05tE8FUinj5ea1NUmDa8RIn2YPiMHd9VdTx305nzQKMrjAiYD6diqdHYp8bGIR1VilyK4Jt0VUtgkhrCgIWIqSi-LnfQzKX3z-5Mmy0-)
 
 5. Write a program that, in an inﬁnite loop, drives a stepper motor speed and direction  
 of which can be controlled by external push buttons. Assume that the no button is ever  
