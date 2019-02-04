@@ -4,7 +4,7 @@
 			EXTERN 	OutStr
 			EXTERN	CONVRT_exp5
 part_two
-			PUSH	{LR}
+			PUSH		{LR}
 			BL 		CONVRT_exp5
 			BL		OutStr
 			POP		{LR}
