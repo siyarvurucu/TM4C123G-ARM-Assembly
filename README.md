@@ -20,5 +20,10 @@ To make the long story short, you are expected to create a RECURSIVE function th
 The following examples are to illustrate what is meant by the aforementioned explanations.  
 Ex: If you are given 147 soulstones, you may ﬂee with none (0 soulstones) since it is possible to spend them in a single step as such:  
 147 ---- Portal 4 ---- 0 Input: 147, Output: 0  
-Nevertheless, there is no possible way to spend all the soulstones if the initial is 100:  
-100 ---- Portal 3 ---- 50 50 ---- Portal 3 ---- 25 OR 100 ---- Portal 1 ---- 53 53 ---- Portal 2 ---- 38 38 ---- Portal 3 ---- 19 (min possible)
+Nevertheless, there is no possible way to spend all the soulstones if the initial is 100:   
+100 ---- Portal 3 ---- 50  
+50 ---- Portal 3 ---- 25  
+OR 
+100 ---- Portal 1 ---- 53 
+53 ---- Portal 2 ---- 38  
+38 ---- Portal 3 ---- 19 (min possible)
