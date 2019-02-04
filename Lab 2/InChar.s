@@ -13,7 +13,7 @@ Stack				EQU	0x00000400
 	
 ; GPIO Registers *****************
 RCGCGPIO		  	EQU 0x400FE608	; GPIO clock register
-; GPIO base address	  = 0x40004000
+; GPIO base address	  	= 0x40004000
 PORTA_DEN			EQU 0x4000451C	; Digital Enable
 PORTA_PCTL		  	EQU 0x4000452C	; Alternate function select
 PORTA_AFSEL		 	EQU 0x40004420	; Enable Alt functions
@@ -28,8 +28,8 @@ UART0_CTL			EQU	0x4000C030	; UART0 control register
 UART0_IBRD			EQU	0x4000C024	; Baud rate divisor Integer part
 UART0_FBRD			EQU	0x4000C028	; Baud rate divisor Fractional part
 UART0_LCRH			EQU	0x4000C02C	; UART serial parameters
-UART0_CC			EQU 0x4000CFC8	; UART clock config
-UART0_FR			EQU 0x4000C018	; UART status
+UART0_CC			EQU 	0x4000CFC8	; UART clock config
+UART0_FR			EQU 	0x4000C018	; UART status
 
 			
 			
@@ -49,8 +49,8 @@ InChar
 	ORR		R0, R0, #0x01				; set bit 0 to enable UART0 clock
 	STR		R0, [R1]
 	NOP									; Let clock stabilize
-    NOP
-    NOP  
+   	 NOP
+    	NOP  
 
 ; Setup GPIO
 	; Enable GPIO clock to use debug USB as com port (PA0, PA1)
@@ -59,8 +59,8 @@ InChar
 	ORR		R0, R0, #0x01				; set bit 0 to enable port A clock
 	STR		R0, [R1]
 	NOP									; Let clock stabilize
-    NOP
-    NOP 
+    	NOP
+  	NOP 
 	
 	; Make PA0, PA1 digital
 	LDR		R1, =PORTA_DEN
@@ -101,7 +101,7 @@ InChar
 	STR		R0, [R1]
 	
 	; Set fractional part
-	;	0.16666*64+0.5 = 11.16666 => Integer = 11
+	; 0.16666*64+0.5 = 11.16666 => Integer = 11
 	LDR		R1, =UART0_FBRD
 	MOV		R0, #11				
 	STR		R0, [R1]
@@ -125,9 +125,9 @@ InChar
 	
 check                               
     ; check for incoming character
-	LDR 	R1, =UART0_FR				; load UART status register address
+	LDR 		R1, =UART0_FR				; load UART status register address
 	LDR		R0, [R1]					; 
-	ANDS	R0,R0,#0x10					; check if char received (RXFE is 0)
+	ANDS		R0,R0,#0x10					; check if char received (RXFE is 0)
 	BNE		check						; if no character, check again, else
 	LDR		R5, [R4]					; load received char into R5
 	
@@ -136,5 +136,5 @@ check
 	BX		LR							; return
 	
 	
-    ALIGN                           ; make sure the end of this section is aligned
-    END                             ; end of file
+   	ALIGN                           ; make sure the end of this section is aligned
+    	END                             ; end of file
