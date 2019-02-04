@@ -48,7 +48,7 @@ InChar
 	LDR		R0, [R1]
 	ORR		R0, R0, #0x01				; set bit 0 to enable UART0 clock
 	STR		R0, [R1]
-	NOP									; Let clock stabilize
+	NOP							; Let clock stabilize
    	 NOP
     	NOP  
 
@@ -58,7 +58,7 @@ InChar
 	LDR		R0, [R1]
 	ORR		R0, R0, #0x01				; set bit 0 to enable port A clock
 	STR		R0, [R1]
-	NOP									; Let clock stabilize
+	NOP							; Let clock stabilize
     	NOP
   	NOP 
 	
@@ -108,7 +108,7 @@ InChar
 	
 	; Set serial parameters
 	LDR		R1, =UART0_LCRH
-	MOV		R0, #0x70			; No stick parity, 8bit, FIFO enabled, 
+	MOV		R0, #0x70				; No stick parity, 8bit, FIFO enabled, 
 	STR		R0, [R1]				; One stop bit, Disable parity, Normal use
 	
 	
@@ -126,15 +126,15 @@ InChar
 check                               
     ; check for incoming character
 	LDR 		R1, =UART0_FR				; load UART status register address
-	LDR		R0, [R1]					; 
-	ANDS		R0,R0,#0x10					; check if char received (RXFE is 0)
-	BNE		check						; if no character, check again, else
-	LDR		R5, [R4]					; load received char into R5
+	LDR		R0, [R1]				; 
+	ANDS		R0,R0,#0x10				; check if char received (RXFE is 0)
+	BNE		check					; if no character, check again, else
+	LDR		R5, [R4]				; load received char into R5
 	
 	POP		{R0-R4}
 
-	BX		LR							; return
-	
+	BX		LR					; return
+
 	
    	ALIGN                           ; make sure the end of this section is aligned
     	END                             ; end of file
