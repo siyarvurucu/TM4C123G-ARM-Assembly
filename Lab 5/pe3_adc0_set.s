@@ -16,19 +16,19 @@ pe3_adc0_set		PUSH		{R0-R1}
 					MOV		R0, #0X010		; port E
 					STR		R0,[R1]
 					
-					LDR 	R1,=GPIO_PORTE_AFSEL
-					MOV 	R0,#0X04		; AF select for pe3
+					LDR 		R1,=GPIO_PORTE_AFSEL
+					MOV 		R0,#0X04		; AF select for pe3
 					STR		R0,[R1]
 					
-					LDR 	R1,=GPIO_PORTE_DIR
+					LDR 		R1,=GPIO_PORTE_DIR
 					MOV		R0,#0x0			; input
 					STR		R0,[R1]
 					
-					LDR 	R1,=GPIO_PORTE_AMSEL
-					MOV 	R0,#0X04		; enable analog
+					LDR 		R1,=GPIO_PORTE_AMSEL
+					MOV 		R0,#0X04		; enable analog
 					STR		R0,[R1]
 					
-					LDR 	R1,=GPIO_PORTE_DEN
+					LDR 		R1,=GPIO_PORTE_DEN
 					MOV		R0,#0X0
 					STR		R0,[R1]
 					
