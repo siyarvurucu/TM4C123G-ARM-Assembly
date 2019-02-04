@@ -5,7 +5,7 @@
 			EXTERN	CONVRT_exp5
 			EXTERN	part_two
 				
-part_three		PUSH	{R2,R3,R4,LR}
+part_three		PUSH		{R2,R3,R4,LR}
 			SUB		R3,R4,R10
 			SUBS 		R2,R3,R9
 			BLO		lower
