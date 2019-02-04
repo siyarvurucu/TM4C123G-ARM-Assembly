@@ -1,0 +1,47 @@
+SSISR		EQU			0X4000800C
+SSIDR		EQU			0x40008008
+
+
+;LABEL		DIRECTIVE	VALUE		COMMENT
+			AREA    	subroutin, READONLY, CODE
+			THUMB
+
+			EXPORT  	PRINT
+
+
+
+;LABEL		DIRECTIVE	VALUE		COMMENT
+
+PRINT		PROC
+			
+			PUSH {LR}
+			PUSH{R0-R4}
+			LDR	R1, =SSISR
+loop0		LDR	R0,[R1]				;CHECK IF TRANSMISSON BUSY
+			AND	R0,#0x2
+			CMP	R0,#0x0
+			BEQ	loop0
+			
+			LDR	R1, =SSISR
+loop1		LDR	R0,[R1]				;CHECK IF TRANSMISSON BUSY
+			AND	R0,#0x10
+			CMP	R0,#0x10
+			BEQ	loop1
+			
+			LDR	R1,=SSIDR
+			STR	R2,[R1]
+			
+			LDR	R1, =SSISR
+loop2		LDR	R0,[R1]				;CHECK IF TRANSMISSON BUSY
+			AND	R0,#0x10
+			CMP	R0,#0x10
+			BEQ	loop2
+			
+			
+			POP{R0-R4}
+			POP{LR}
+			BX LR	
+	
+			ENDP
+			ALIGN
+			END
