@@ -6,10 +6,10 @@
 			EXTERN	rotateleft
 
 __main 					
-			BL 		gpioset				; I/O and interrupt registers set
-			MOV32	R6,#0x000F0000		; DELAYSome amount
-			CPSIE 	I 					; enable interrupts
+			BL 	gpioset				; I/O and interrupt registers set
+			MOV32	R6,#0x000F0000			; DELAYSome amount
+			CPSIE 	I 				; enable interrupts
 			
-			B 		rotateleft			; start with left
+			B 	rotateleft			; start with left
 			END
 
