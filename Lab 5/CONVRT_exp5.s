@@ -1,4 +1,4 @@
-			; Converts to voltage value in hex number to x.xx in ascii
+			; Converts to voltage value in hex number to x.yz in ascii
 			
 			AREA    	routines, READONLY, CODE, ALIGN=2
 			THUMB
