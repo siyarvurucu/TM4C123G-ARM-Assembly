@@ -1,4 +1,4 @@
-;LABEL 			DIRECTIVE 	VALUE		 COMMENT
+;LABEL 			DIRECTIVE 	VALUE		 	COMMENT
 			AREA 		main , CODE, READONLY
 			THUMB
 			EXTERN 		InitSysTick 
@@ -6,8 +6,9 @@
 			EXTERN 	 	DELAYSome
 			EXTERN  	gpioset
 			EXTERN  	DELAY100
-			;EXTERN		GPIOB_HANDLER			
+			
 GPIO_PORTB_DATA 	EQU 		0x400053FC
+
 __main 		
 			LDR		R6,=0x00F00000		; time of output applied to driver
 			BL 		gpioset
