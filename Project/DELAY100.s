@@ -1,5 +1,5 @@
 	
-;LABEL  	DIRECTIVE   VALUE       COMMENT	              
+;LABEL  		DIRECTIVE   	VALUE       	COMMENT	              
 			AREA    	SUBROUTINES, READONLY, CODE, ALIGN=2  
 			EXPORT     	DELAY100  
 			THUMB
