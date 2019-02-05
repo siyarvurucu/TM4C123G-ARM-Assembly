@@ -7,31 +7,31 @@ GPIO_PORTE_PCTL 	EQU 0x4002452C ; Alternate Functions
 	
 SYSCTL_RCGCGPIO 	EQU 0x400FE608 ; GPIO Gate Control
 	
-					AREA 	routines, CODE, READONLY
-					THUMB
-					EXPORT 	pe2_pe3_init
+			AREA 	routines, CODE, READONLY
+			THUMB
+			EXPORT 	pe2_pe3_init
 						
 pe2_pe3_init		PUSH	{R0-R1}
-					LDR		R1,=SYSCTL_RCGCGPIO
-					MOV		R0, #0X010		; port E
-					STR		R0,[R1]
+			LDR	R1,=SYSCTL_RCGCGPIO
+			MOV	R0, #0X010		; port E
+			STR	R0,[R1]
+				
+			LDR 	R1,=GPIO_PORTE_AFSEL
+			MOV 	R0,#0X0C		; AF select for pe3
+			STR	R0,[R1]
 					
-					LDR 	R1,=GPIO_PORTE_AFSEL
-					MOV 	R0,#0X0C		; AF select for pe3
-					STR		R0,[R1]
+			LDR 	R1,=GPIO_PORTE_DIR
+			MOV	R0,#0x0			; input
+			STR	R0,[R1]
 					
-					LDR 	R1,=GPIO_PORTE_DIR
-					MOV		R0,#0x0			; input
-					STR		R0,[R1]
+			LDR 	R1,=GPIO_PORTE_AMSEL
+			MOV 	R0,#0X0C		; enable analog
+			STR	R0,[R1]
 					
-					LDR 	R1,=GPIO_PORTE_AMSEL
-					MOV 	R0,#0X0C		; enable analog
-					STR		R0,[R1]
+			LDR 	R1,=GPIO_PORTE_DEN
+			MOV	R0,#0X0
+			STR	R0,[R1]
 					
-					LDR 	R1,=GPIO_PORTE_DEN
-					MOV		R0,#0X0
-					STR		R0,[R1]
-					
-					POP		{R0-R1}
-					BX		LR
-					END
+			POP	{R0-R1}
+			BX	LR
+			END
