@@ -42,5 +42,6 @@ After the game ends, it starts back from the deployment phase for a new game.
                                   
 ![alt text](https://github.com/srvrc/TM4C123G-ARM-Assembly/blob/master/Project/Capture2.JPG)  
 
+### Our solution  
 
 ![alt text](https://github.com/srvrc/TM4C123G-ARM-Assembly/blob/master/Project/ASM.png)  
